@@ -56,14 +56,14 @@ export class WoWCombatLogParser extends EventEmitter {
     }
 
     if (this.state === LogParsingState.NOT_IN_MATCH) {
-      if (logLine.event === LogEvent.ARENA_MATCH_START) {
+      if (logLine.event === LogEvent.ARENA_MATCH_START || logLine.event === LogEvent.CHALLENGE_MODE_START) {
         this.startNewCombat(logLine);
       }
     } else {
-      if (logLine.event === LogEvent.ARENA_MATCH_END) {
+      if (logLine.event === LogEvent.ARENA_MATCH_END || logLine.event === LogEvent.CHALLENGE_MODE_END) {
         this.currentLinebuffer.push(line);
         this.endCurrentCombat(logLine);
-      } else if (logLine.event === LogEvent.ARENA_MATCH_START) {
+      } else if (logLine.event === LogEvent.ARENA_MATCH_START || logLine.event === LogEvent.CHALLENGE_MODE_START) {
         this.endCurrentCombat();
         this.startNewCombat(logLine);
       } else {
