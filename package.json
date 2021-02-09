@@ -24,11 +24,6 @@
     "publish:major": "git checkout main && bump major -t \"v%s\" -p && yarn publish:no-bump"
   },
   "peerDependencies": {},
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
-  },
   "prettier": {
     "printWidth": 80,
     "semi": true,
