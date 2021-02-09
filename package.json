@@ -24,6 +24,8 @@
     "publish:major": "git checkout main && bump major -t \"v%s\" -p && yarn publish:no-bump"
   },
   "peerDependencies": {},
+  "husky": {
+  },
   "prettier": {
     "printWidth": 80,
     "semi": true,
